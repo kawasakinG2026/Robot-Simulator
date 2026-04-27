@@ -32,16 +32,12 @@ public class PedalMovement : MonoBehaviour
     {
         accelAction.Enable();
         brakeAction.Enable();
-        leftStick.Enable();
-        rightStick.Enable();
     }
 
     void OnDisable()
     {
         accelAction.Disable();
         brakeAction.Disable();
-        leftStick.Disable();
-        rightStick.Disable();
     }
 
     void Update()
@@ -62,12 +58,11 @@ public class PedalMovement : MonoBehaviour
         float smoothBrake = Mathf.Clamp01((brakeValue - brakeDeadZone) / (1 - brakeDeadZone));
         //前進と同様に慣性を付与
         currentBackward = Mathf.MoveTowards(currentBackward, smoothBrake, Time.deltaTime * acceleration);
-        //横移動と混同させ、曲線的な挙動を再現
-        Vector3 backwardMove = (-playerBody.forward * backDashSpeed * currentBackward)
-                             + (playerBody.right * blend.x * backDashSideRate);
+        //単純に後退する計算式
+        Vector3 backwardMove = -playerBody.forward * backDashSpeed * currentBackward;
 
-        // 移動合成（前進・後退・横移動を合成）
-        Vector3 moveVec = forwardMove + horizontal + backwardMove;
+        // 合成（前進・後退を合成）
+        Vector3 moveVec = forwardMove + backwardMove;
         //フレーム依存を回避
         playerBody.position += moveVec * Time.deltaTime;
     }
