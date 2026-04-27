@@ -33,7 +33,7 @@ public class DualStickLook : MonoBehaviour
         Vector2 right = rightStick.ReadValue<Vector2>();
 
         // ===== 回転判定 =====
-        //誤入力による全景を防ぐために、片方のスティックのみ入力されているかも判定
+        //誤入力による前傾を防ぐために、片方のスティックのみ入力されているかも判定
         bool onlyLeft  = Mathf.Abs(left.y)  > 0.01f && Mathf.Abs(right.y) < 0.01f;
         bool onlyRight = Mathf.Abs(right.y) > 0.01f && Mathf.Abs(left.y)  < 0.01f;
 
@@ -46,10 +46,10 @@ public class DualStickLook : MonoBehaviour
         }
 
         // ヨー（左右旋回）
-        //左右スティックの差分から旋回方法を計算
+        //左右スティックの前後入力の差分から旋回方向を計算
         float yawInput = (right.y - left.y) * 0.5f;
 
-        // ロール
+        // ロール（左右の横入力の差分から旋回方向を計算）
         float rollInput = (right.x - left.x) * 0.5f;
 
         // ===== 回転適用 (+ - -) =====
