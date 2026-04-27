@@ -11,19 +11,14 @@ public class PedalMovement : MonoBehaviour
     public InputAction brakeAction;
    
     [Header("Move Settings")]
-    public float baseSpeed = 0.1f;    //アイドリングスピード（バグ回避策）  
+    public float baseSpeed = 0.1f;  //アイドリングスピード（完全停止によるバグ防止）  
     public float maxForwardSpeed = 12f;
     public float backDashSpeed = 10f;
-    public float sideSpeed = 6f;
     public float acceleration = 6f;   //最高速までの加速度
 
     [Header("Pedal Settings")]
-    public float accelDeadZone = 0.5f;　//アクセルペダルの遊びを設定
-    public float brakeDeadZone = -0.7f;
-
-    [Header("Blend Settings")]
-    public float sideBlendStrength = 1.0f;
-    public float backDashSideRate = 0.6f;   
+    public float accelDeadZone = 0.5f;  //アクセルペダルの遊びを設定
+    public float brakeDeadZone = -0.7f;  
 
     private float currentForward;
     private float currentBackward;
@@ -58,7 +53,7 @@ public class PedalMovement : MonoBehaviour
         float smoothBrake = Mathf.Clamp01((brakeValue - brakeDeadZone) / (1 - brakeDeadZone));
         //前進と同様に慣性を付与
         currentBackward = Mathf.MoveTowards(currentBackward, smoothBrake, Time.deltaTime * acceleration);
-        //単純に後退する計算式
+        //後ろ向きに移動（後退動作）
         Vector3 backwardMove = -playerBody.forward * backDashSpeed * currentBackward;
 
         // 合成（前進・後退を合成）
