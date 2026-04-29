@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
     {
         // ダメージ処理
         //EnemyesHPのスクリプトを参照（スクリプト名一致必須）
-        var target = collision.gameObject.GetComponent<EnemyesHP>();
+        var target = collision.gameObject.GetComponent<EnemyHP>();
         if (target != null)
         {
             //弾丸命中時
