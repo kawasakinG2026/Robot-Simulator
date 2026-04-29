@@ -4,10 +4,10 @@ using UnityEngine.UI;
 public class AimAssist : MonoBehaviour
 {
     [Header("Bone and Camera")]
-    public Transform rightArm;        // 上腕（肩関節）
-    public Transform forearm;         // 肘関節
-    public Transform head;            // 頭部
-    public Transform gunMuzzle;       // 銃口
+    public Transform rightArm;        //上腕（肩関節）
+    public Transform forearm;         //肘関節
+    public Transform head;            //頭部
+    public Transform gunMuzzle;       //銃口
     public Camera cam;
 
     [Header("AimAssist Option")]//エイムアシスト設定
@@ -111,12 +111,12 @@ public class AimAssist : MonoBehaviour
         Vector3 dir = targetEnemy.position - rightArm.position;
         //操作機体のローカル方向に変換
         Vector3 localDir = rightArm.parent.InverseTransformDirection(dir.normalized);
-        //ローカル方向から上下左右（角度）を計算
+        //ローカル方向から上下左右（角度）を計算（腕が逆へ曲がる場合、x/y/zを置き換えたり、符号を換えたりするのを推奨）
         float pitch = Mathf.Clamp(Mathf.Asin(-localDir.x) * Mathf.Rad2Deg, minPitch, maxPitch);
         float yaw   = Mathf.Atan2(-localDir.y,localDir.z) * Mathf.Rad2Deg;
         float roll  = 0f;
 
-        // X/Y/Z 微調整用で個別にオフセットを設定
+        //X/Y/Z 微調整用で個別にオフセットを設定
         pitch += localRotationOffset.x;
         yaw   += localRotationOffset.y;
         roll  += localRotationOffset.z;
