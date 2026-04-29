@@ -61,7 +61,7 @@ public class FirenAndFlash : MonoBehaviour
 
     private void Shoot()
     {
-        // 弾の発射（銃口の向きと発射ポイントの向きが同じであれば安定）
+        //弾の発射（銃口の向きと発射ポイントの向きが同じであれば安定）
         if (bulletPrefab != null && firePoint != null)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
@@ -72,7 +72,7 @@ public class FirenAndFlash : MonoBehaviour
             }
         }
 
-        // フラッシュ表示
+        //フラッシュ表示
         if (muzzleFlashPrefab != null && muzzleFlashPoint != null && flashTimer >= flashCooldown)
         {
             GameObject flash = Instantiate(muzzleFlashPrefab, muzzleFlashPoint.position, muzzleFlashPoint.rotation, muzzleFlashPoint);
