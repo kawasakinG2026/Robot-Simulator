@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class Vulcan : MonoBehaviour
 {
     [Header("InputAction")]
-     //射撃ボタンの設定
+    //射撃ボタンの設定
     public InputAction fireAction;
 
     [Header("Fire")]
@@ -35,7 +35,7 @@ public class Vulcan : MonoBehaviour
 
     private void Awake()
     {
-        // 本体のRigidbody取得（移動補正のため）
+        //本体のRigidbody取得（移動補正のため）
         parentRb = GetComponentInParent<Rigidbody>();
     }
 
@@ -70,7 +70,7 @@ public class Vulcan : MonoBehaviour
 
     private void Shoot()
     {
-        // ===== 弾の発射 =====
+        //弾の発射
         if (bulletPrefab != null && firePoint != null)
         {
             GameObject bullet = Instantiate(
@@ -85,7 +85,7 @@ public class Vulcan : MonoBehaviour
             {
                 Vector3 finalDirection = firePoint.forward;
 
-                // 本体の移動方向を少し加える
+                //本体の移動方向を少し加える
                 if (parentRb != null)
                 {
                     Vector3 moveVelocity = parentRb.linearVelocity;
@@ -104,7 +104,7 @@ public class Vulcan : MonoBehaviour
             }
         }
 
-        // ===== マズルフラッシュ =====
+        //マズルフラッシュ
         if (muzzleFlashPrefab != null &&
             muzzleFlashPoint != null &&
             flashTimer >= flashCooldown)
