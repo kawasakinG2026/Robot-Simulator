@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyesHP : MonoBehaviour
+public class EnemyHP : MonoBehaviour
 {
     [Header("MaxHP)]
     public float maxHP = 100f;
