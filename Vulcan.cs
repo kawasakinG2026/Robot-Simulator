@@ -13,6 +13,7 @@ public class Vulcan : MonoBehaviour
     //弾丸が発射されるポイント（空オブジェクトを頭部に設置）
     public Transform firePoint;
     public float bulletSpeed = 50f;
+    //連射速度
     public float fireRate = 0.1f;
 
     [Header("移動方向補正")]
@@ -27,7 +28,6 @@ public class Vulcan : MonoBehaviour
 
     [Tooltip("FlashCT")]
     public float flashCooldown = 0.1f;
-
     private float fireTimer = 0f;
     private float flashTimer = 0f;
 
