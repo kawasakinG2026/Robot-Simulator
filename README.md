@@ -1,4 +1,6 @@
 
 # Robot-Simulator
 Unityでスティックやペダルなどを用いて、実際の操作を想定して制作したロボットアクションゲーム
-<img width="1134" height="638" alt="スクリーンショット (11)" src="https://github.com/user-attachments/assets/3040e862-e5a5-495c-8cf6-c5265b334dce" />
+<概要>
+制作物の提出にあたって、作成したC#のスクリプトを一部抜粋して添付しています。
+使用したソフトはUnityとBlenderです。Blenderで作成したモデルをUnityへ転送し、アーマチュアの構造を活用して動作の制御を行っています。
