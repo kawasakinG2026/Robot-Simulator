@@ -23,6 +23,7 @@ public class Bullet : MonoBehaviour
         var target = collision.gameObject.GetComponent<EnemyesHP>();
         if (target != null)
         {
+            //弾丸命中時
             target.TakeDamage(damage);
         }
 
