@@ -19,7 +19,8 @@ public class Bullet : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         // ダメージ処理
-        var target = collision.gameObject.GetComponent<DamageableMassive>();
+        //EnemyesHPのスクリプトを参照（スクリプト名一致必須）
+        var target = collision.gameObject.GetComponent<EnemyesHP>();
         if (target != null)
         {
             target.TakeDamage(damage);
