@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class DualStickLook : MonoBehaviour
 {
-    [Header("Rotation Speeds")]
+    [Header("Rotation Speed")]
     public float pitchSpeed = 90f; // 前後傾き（ピッチ）
     public float yawSpeed   = 90f; // 左右旋回（ヨー）
     public float rollSpeed  = 90f; // 時計・反時計回りに回転（ロール）
